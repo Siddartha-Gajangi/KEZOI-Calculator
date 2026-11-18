@@ -75,6 +75,17 @@ header h1{font-size:11px;font-weight:500;letter-spacing:2px;opacity:.76;margin:3
 #pdfBtn{display:inline-flex;align-items:center;justify-content:center;gap:8px}
 @media(max-width:560px){.logo{width:min(280px,91%)}header h1{font-size:10px}.card,.box:not(.big){-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.card,.box:not(.big){background:rgba(255,252,245,.85)}}
+
+/* Hide only native number-input increment/decrement controls; preserve selects. */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
 </style>
 </head>
 <body>
