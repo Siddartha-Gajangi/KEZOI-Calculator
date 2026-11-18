@@ -45,6 +45,35 @@ table{border-collapse:collapse;width:100%;min-width:690px}th,td{padding:9px 8px;
 ::selection{background:var(--gold);color:var(--deep)}
 @media(max-width:560px){.wrap{padding:10px 12px calc(26px + env(safe-area-inset-bottom,0px))}.card{padding:15px 13px;margin-top:12px;border-radius:15px}.grid{grid-template-columns:1fr}#costs{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#costs label{min-height:35px;font-size:12px}#costs input{padding:10px 8px}.res{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.box{padding:12px 10px}.box small{min-height:48px}.big{grid-column:1/-1}.big small{min-height:0}.big b{font-size:clamp(25px,7vw,34px)}.row>div{flex:1 1 100%;min-width:0}.row button,#resetCur,#restore,#pdfBtn{width:100%}#addArea{flex:1 1 100%!important}}
 @media(max-width:340px){#costs{grid-template-columns:1fr}#costs label{min-height:0}}
+
+/* Visual-only glass layer. All original palette tokens and business logic are unchanged. */
+body{background:linear-gradient(165deg,#fdf7eb,#f9e9d2 55%,#f2e0c5);background-attachment:fixed}
+.logo{width:min(275px,86%);transition:none}
+h1{font-size:clamp(15px,3.5vw,19px);letter-spacing:1.15px;font-weight:600;margin:4px 0 8px}
+.card{background:rgba(255,252,245,.57);border:1px solid rgba(255,255,255,.72);box-shadow:0 10px 30px rgba(15,61,52,.085),inset 0 1px 0 rgba(255,255,255,.8);-webkit-backdrop-filter:blur(16px) saturate(115%);backdrop-filter:blur(16px) saturate(115%)}
+.box:not(.big){background:rgba(249,245,233,.46);border-color:rgba(119,94,47,.23);-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px)}
+input,select{background-color:rgba(255,253,247,.69);transition:border-color .16s ease,box-shadow .16s ease}
+input:focus-visible,select:focus-visible{box-shadow:0 0 0 3px rgba(32,98,102,.12)}
+button{transition:background-color .16s ease,box-shadow .16s ease}
+button:hover{box-shadow:0 3px 10px rgba(15,61,52,.10)}
+@media(max-width:560px){.logo{width:min(265px,88%)}h1{font-size:16px}.card{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}}
+@media(prefers-reduced-motion:reduce){button,input,select{transition:none}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.card{background:rgba(255,252,245,.90)}.box:not(.big){background:rgba(249,245,233,.88)}}
+
+/* Requested refinement: preserve original palette and all existing logic. */
+.logo{width:min(290px,90%)}
+header h1{font-size:clamp(10px,1.7vw,12px);font-weight:500;letter-spacing:1.8px;opacity:.68;margin:2px 0 7px}
+.glass,.card,.box:not(.big){
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:16px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.1);
+}
+.card{transition:box-shadow .2s ease,border-color .2s ease}
+@media(max-width:560px){.logo{width:min(280px,92%)}header h1{font-size:10px;letter-spacing:1.5px}}
+@media(prefers-reduced-motion:reduce){.card{transition:none}}
 </style>
 </head>
 <body>
